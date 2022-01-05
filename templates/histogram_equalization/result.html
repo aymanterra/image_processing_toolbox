@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Histogram Equalization Result</title>
+{% endblock %}
+
+
+{% block content %}
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="h2">Histogram Equalization</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm text-center"></div>
+        <div class="col-sm text-center">
+            <p class="text-center h4">Original Image</p>
+            <img class="img-fluid" src="{{ url_for('static', filename='images/original-' + random_id + '.jpeg') }}" alt="original.jpeg">
+        </div>
+        <div class="col-sm text-center"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm text-center">
+            <p class="text-center h4">Original Grayscale Image</p>
+            <img class="img-fluid" src="{{ url_for('static', filename='images/original_gray-' + random_id + '.jpeg') }}" alt="original_gray.jpeg">
+        </div>
+        <div class="col-sm text-center">
+            <p class="text-center h4">Histogram</p>
+            <img class="img-fluid" src="{{ url_for('static', filename='images/original_histogram-' + random_id + '.jpeg') }}" alt="original_histogram.jpeg">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm text-center">
+            <p class="text-center h4">Original Image</p>
+            <img class="img-fluid" src="{{ url_for('static', filename='images/equalized_image-' + random_id + '.jpeg') }}" alt="equalized_image.jpeg">
+        </div>
+        <div class="col-sm text-center">
+            <p class="text-center h4">Histogram</p>
+            <img class="img-fluid" src="{{ url_for('static', filename='images/equalized_histogram-' + random_id + '.jpeg') }}" alt="equalized_histogram.jpeg">
+        </div>
+    </div>
+{% endblock %}

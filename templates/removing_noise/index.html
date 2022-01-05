@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Removing Noise</title>
+{% endblock %}
+
+
+{% block content %}
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="h2">Removing Noise</h1>
+    </div>
+    <div>
+        <form action="/removing_noise" method='POST' id="removing_noise_form" enctype="multipart/form-data">
+            <div class="form-group">
+                <div class="custom-file">
+                    <input type="file"
+                        class="custom-file-input"
+                        id="file"
+                        name="file"
+                        accept="image/png, image/jpeg"
+                        required>
+                    <label class="custom-file-label" for="file" id="file-label">Choose a Noisy Image...</label>
+                    <div class="invalid-feedback">Image is required and of type jpeg</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <select class="custom-select" id="noise_type" name="noise_type" required>
+                    <option value="">Select Noise Type...</option>
+                    <option value="Salt and Pepper">Salt and Pepper</option>
+                    <option value="Gaussian">Gaussian</option>
+                    <option value="Periodic">Periodic</option>
+                </select>
+                <div class="invalid-feedback">Required Field</div>
+            </div>
+            <div id="Periodic" class="noise_type" hidden>
+                <div class="form-group">
+                    <select class="custom-select" id="removal_type" name="removal_type">
+                        <option value="">Select Removal Technique...</option>
+                        <option value="Notch">Notch</option>
+                        <option value="Band Reject">Band Reject</option>
+                        <option value="Mask">Mask</option>
+                    </select>
+                    <div class="invalid-feedback">Required Field</div>
+                </div>
+            </div>
+            <button type="submit" id="submit_btn" class="btn btn-primary mt-3">Submit</button>
+        </form>
+    </div>
+{% endblock %}

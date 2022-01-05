@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest') }}">
+    
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"/>
+
+    {% block head %} {% endblock %}
+</head>
+<body>
+
+    <!-- Nav -->
+    {% include 'nav.html' %}
+
+    <!-- Page Content-->
+    <div class="container-fluid">
+        <div class="row"></div>
+            <!-- Sidebar -->
+            {% include 'sidebar.html' %}
+        
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                {% block content %} {% endblock %}
+            </main>
+        </div>
+    </div>
+
+    <!-- JQuery Core JS -->
+    <script src="{{ url_for('static', filename='js/jquery-3.6.0.min.js') }}"></script>
+
+    <!-- Bootstrap core JS-->
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Custom JS for this template -->
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

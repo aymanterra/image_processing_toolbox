@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Removing Noise Result</title>
+{% endblock %}
+
+
+{% block content %}
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="h2">Removing Noise</h1>
+    </div>
+    {% if noise_type in ["Gaussian", "Salt and Pepper"] %}
+        <div class="row">
+            <div class="col-sm text-center">
+                <p class="text-center h4">Original Noisy Image</p>
+                <img class="img-fluid" src="{{ url_for('static', filename='images/original-' + random_id + '.jpeg') }}" alt="original.jpeg">
+            </div>
+            <div class="col-sm text-center">
+                <p class="text-center h4">Denoised Image</p>
+                <img class="img-fluid" src="{{ url_for('static', filename='images/denoised-' + random_id + '.jpeg') }}" alt="denoised.jpeg">
+                <p class="text-center text-primary h6"><b>Denoised Using:</b> 
+                    {% if noise_type == "Salt and Pepper" %}
+                        Median Filter
+                    {% endif %}
+                    {% if noise_type == "Gaussian" %}
+                        Result of Average Filter + Result of Sobel Filter
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    {% endif %}
+    {% if noise_type == "Periodic" %}
+        <div class="row">
+            <!-- <div class="col-sm text-center"></div> -->
+            <div class="col-sm text-center">
+                <p class="text-center h4">Original Noisy Image</p>
+                <img class="img-fluid" src="{{ url_for('static', filename='images/original-' + random_id + '.jpeg') }}" alt="original.jpeg">
+            </div>
+            <div class="col-sm text-center">
+                <p class="text-center h4">Original Noisy FFT</p>
+                <img class="img-fluid" src="{{ url_for('static', filename='images/fourier_transformation-' + random_id + '.jpeg') }}" alt="fourier_transformation.jpeg">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm text-center">
+                <p class="text-center h4">Denoised Image</p>
+                <img class="img-fluid" src="{{ url_for('static', filename='images/denoised-' + random_id + '.jpeg') }}" alt="denoised.jpeg">
+            </div>
+            <div class="col-sm text-center">
+                <p class="text-center h4">Denoised FFT</p>
+                <img class="img-fluid" src="{{ url_for('static', filename='images/denoised_fourier_transformation-' + random_id + '.jpeg') }}" alt="denoised_fourier_transformation.jpeg">
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

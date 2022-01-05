@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Histogram Equalization</title>
+{% endblock %}
+
+
+{% block content %}
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="h2">Histogram Equalization</h1>
+    </div>
+    <div>
+        <form action="/histogram_equalization" method='POST' enctype="multipart/form-data">
+            <div class="form-group">
+                <div class="custom-file">
+                    <input type="file"
+                        class="custom-file-input"
+                        id="file"
+                        name="file"
+                        accept="image/png, image/jpeg"
+                        required>
+
+                    <label class="custom-file-label" for="file" id="file-label">Choose file...</label>
+                    <div class="invalid-feedback">Image is required and of type jpeg</div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Removing Noise</title>
+{% endblock %}
+
+
+{% block content %}
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="h2">Removing Noise</h1>
+    </div>
+    <div>
+        <form action="/removing_noise_mask" method='POST' id="removing_noise_form" enctype="multipart/form-data">
+            <p class="h5">Select required pixels from the image to mask:</p>
+            <div class="form-group">
+                <input type="hidden" name="random_id" value="{{random_id}}">
+                <input type="hidden" name="noise_type" value="{{noise_type}}">
+                <input type="hidden" name="removal_type" value="{{params['removal_type']}}">
+                <img class="img" id="mask_img" src="{{ url_for('static', filename='images/fourier_transformation-' + random_id + '.jpeg') }}" alt="fourier_transformation.jpeg">    
+            </div>
+            <div class="form-group">
+                <input type="hidden" name="selected_pixels" id="selected_pixels">
+                <p id="selected_pixels_text"></p>
+            </div>
+            <button type="submit" id="submit_btn" class="btn btn-primary mt-3">Submit</button>
+        </form>
+    </div>
+{% endblock %}
